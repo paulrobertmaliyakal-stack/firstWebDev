@@ -1,0 +1,41 @@
+﻿@model myfirstproj.Models.login_veiw
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken();
+    <div class="Form-group">
+        @Html.LabelFor(m => m.userdata.username)
+        @Html.TextBoxFor(m => m.userdata.username, new { @class = "form-control" })
+    </div>
+
+    <div class="Form-group">
+        @Html.LabelFor(m => m.userdata.pass)
+        @Html.PasswordFor(m => m.userdata.pass, new { @class = "form-control" })
+
+    </div>
+    
+    <div class="Form-group">
+        @Html.LabelFor(m => m.newuser)
+        @Html.TextBoxFor(m => m.newuser, new { @class = "form-control" })
+
+    </div>
+
+    <div class=" Form-group">
+        @Html.LabelFor(m => m.changepass)
+        @Html.TextBoxFor(m => m.changepass, new { @class = "form-control" })
+    </div>
+    
+    /*
+    if (Model.incorrectpass == true)
+    {
+        <p>the password entered is incorrect</p>
+    }
+    if (Model.incorrectcred == true) {
+        <p>the entered username does not exist or create new account</p>
+}
+    */
+    <button type="submit" class="btn btn-primary">submit</button>
+
+
+}
+

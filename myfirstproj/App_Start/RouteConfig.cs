@@ -7,16 +7,21 @@ using System.Web.Routing;
 
 namespace myfirstproj
 {
-    public class RouteConfig
+    public class  RouteConfig
     {
         public static void RegisterRoutes(RouteCollection routes)
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
-
+            routes.MapRoute
+                (name: "someRandomName",
+               url:"{controller}/{action}",
+                defaults: new { controller = "Program", action = "Index" });
+            routes.MapRoute("A unique name",
+                "Movies/fetch/{name}/{age}");
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+                defaults: new { controller = "Program", action = "Random", id = UrlParameter.Optional }
             );
         }
     }
